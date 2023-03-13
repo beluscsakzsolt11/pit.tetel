@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>Háromszög rajzolása</title>
+    <style>
+      canvas {
+        border: 1px solid black;
+      }
+    </style>
+  </head>
+  <body>
+    <form>
+      <label for="a">A oldal hossza:</label>
+      <input type="number" id="a" name="a"><br><br>
+      <label for="b">B oldal hossza:</label>
+      <input type="number" id="b" name="b"><br><br>
+      <input type="button" value="Háromszög rajzolása" onclick="drawTriangle()">
+    </form>
+    <canvas id="canvas" width="500" height="500"></canvas>
+    <script>
+      function drawTriangle() {
+        
+        let a = parseInt(document.getElementById("a").value);
+        let b = parseInt(document.getElementById("b").value);
+
+        
+        let c = Math.sqrt(Math.pow(a, 2) + Math.pow(b, 2));
+
+        
+        let canvas = document.getElementById("canvas");
+        let ctx = canvas.getContext("2d");
+        ctx.beginPath();
+        ctx.moveTo(0, 0);
+        ctx.lineTo(a, 0);
+        ctx.lineTo(0, b);
+        ctx.lineTo(0, 0);
+        ctx.stroke();
+      }
+    </script>
+  </body>
+</html>
